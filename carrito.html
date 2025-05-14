@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="background-color: hsl(171, 100%, 82%);">
+    <header>
+        <div class="container-hero">
+            <div class="container hero">
+                <div class="logo-nombre">
+                    <img src="img/onelogo.jpg" width="60" height="50">
+                    <div class="logo-nombre-eslogan">
+                        <h1><span class="text">Pasteleria "Dulce Cocó"</span></h1>
+                        <span class="text">"Amor a primera mordida"</span>
+                    </div>
+                </div>
+                <div class="container-user">
+                    <a href="Sesion.html"><i class="fa-solid fa-user"></i></a>
+                    <a href="carrito.html"><i class="fa-solid fa-basket-shopping"></i></a>
+                    <div class="content-shopping-cart">
+                        <span class="text">Carrito de compras</span>
+                        <span class="number" id="cart-count">(0)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="cart-container">
+        <h2>Carrito de Compras</h2>
+        <div id="cart-items"></div>
+        <p>Total: $<span id="total-price">0</span></p>
+        <button id="checkout-button">Proceder al pago</button>
+    </section> <br><br>
+    
+
+    <script>
+        function loadCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            return cart;
+        }
+
+        function saveCart(cart) {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        function updateCartCount(cart) {
+            const cartCount = document.getElementById('cart-count');
+            cartCount.textContent = `(${cart.length})`;
+        }
+
+        function removeFromCart(index) {
+            let cart = loadCart();
+            cart.splice(index, 1);
+            saveCart(cart);
+            displayCart();
+        }
+
+        function updateQuantity(index, quantity) {
+            let cart = loadCart();
+            cart[index].quantity = quantity;
+            saveCart(cart);
+            displayCart();
+        }
+
+        function displayCart() {
+            const cartItems = document.getElementById('cart-items');
+            const cart = loadCart();
+            let totalPrice = 0;
+
+            cartItems.innerHTML = '';
+
+            cart.forEach((item, index) => {
+                const itemElement = document.createElement('div');
+                itemElement.className = 'cart-item';
+                itemElement.innerHTML = `
+                    <h3>${item.name}</h3>
+                    <p>Precio: $${item.price}</p>
+                    <label>Cantidad: </label>
+                    <input type="number" min="1" value="${item.quantity}" onchange="updateQuantity(${index}, this.value)">
+                    <button onclick="removeFromCart(${index})">Eliminar</button>
+                `;
+                cartItems.appendChild(itemElement);
+                totalPrice += parseFloat(item.price) * item.quantity;
+            });
+
+            document.getElementById('total-price').textContent = totalPrice.toFixed(2);
+            updateCartCount(cart);
+        }
+
+        displayCart();
+    </script>
+
+    <button>
+        <a href="index.html">Inicio</a>
+    </button>
+</body>
+</html>
