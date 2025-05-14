@@ -1,0 +1,98 @@
+:root{
+   --background-color: #defb9a;
+   --dark-color: #151515;
+}
+
+html{
+   font-size: 62.5%;
+   font-family: 'Poppins',sans-serif;
+}
+
+*{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+.container-hero{
+   background-color: var(--background-color); 
+}
+
+.hero{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding:2rem 0;
+   
+}
+.logo-nombre{
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.logo-nombre i{
+   font-size: 3.3rem;
+}
+
+.logo-nombre-eslogan{
+  display: flex;
+  flex-direction: column;
+}
+
+.elegant-buy-button {
+   background-color: #fffd96; 
+   border: 2px solid #9cf8ff;
+   color: #5a3e36; 
+   padding: 15px 30px;
+   font-size: 14px; 
+   font-family: 'Garamond', serif; 
+   font-weight: bold;
+   text-transform: uppercase; 
+   border-radius: 30px; 
+   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
+   transition: all 0.3s ease; 
+   cursor: pointer; 
+   outline: none; /
+}
+
+.elegant-buy-button:hover {
+   background-color: #fffd96; 
+   border-color: #ff0000; 
+   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+   transform: translateY(-3px); 
+}
+
+.elegant-buy-button:active {
+   background-color: #fbff00; 
+   border-color: #ff0000; 
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+   transform: translateY(1px); 
+}
+
+.formal-button {
+   background-color: #f8f4e3; 
+   border: 2px solid grey
+   ; 
+   color: #333; 
+   padding: 12px 24px; 
+   font-size: 18px;
+   font-family: 'Georgia', serif; 
+   font-weight: bold; 
+   text-transform: uppercase; 
+   border-radius: 8px; 
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+   transition: background-color 0.3s ease, box-shadow 0.3s ease; 
+   cursor: pointer; 
+   outline: none; 
+}
+
+.formal-button:hover {
+   background-color: #e2dac2; 
+   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); 
+}
+
+.formal-button:active {
+   background-color: #a9a9a9; 
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
