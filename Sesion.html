@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de sesion</title>
+    <link rel="stylesheet" href="Est/sesion.css">
+    <script>
+        function mostrarMensajeBienvenida() {
+            alert('Registrate para iniciar sesion :)');
+        }
+        window.onload = mostrarMensajeBienvenida;
+    </script>
+</head>
+<body style="background-color: plum;">
+
+    <div class="container-hero">
+        <div class="container hero">
+            <div class="logo-nombre">
+                <img src="img/magoelec.gif" width="60" height="50">
+                <div class="logo-nombre-eslogan">
+                    <h1>
+                    <span class="text">Pasteleria "Dulce Cocó"</span></h1>
+                    <span class="text">"Amor a primera mordida"</span>
+                </div>
+            </div>
+            
+    <center><h2>Registrate</h2></center>
+    <form id="registroForm" action="In.html" method="POST">
+        <label for="nombre">Nombre Completo:</label>
+        <input type="text" id="nombre" name="nombre" required><br>
+
+        <label for="telefono">Telefono:</label>
+        <input type="text" id="telefono" name="telefono" required><br>
+
+        <label for="direccion">Direccion:</label>
+        <input type="text" id="direccion" name="direccion" required><br>
+
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" required><br>
+
+        <center><input type="submit" value="Enviar Registro"></center>
+    </form>>
+    
+    <center>
+        <button>
+            <a href="Index.html">Inicio</a>
+        </button>
+    </center>
+    
+</body>
+</html>
